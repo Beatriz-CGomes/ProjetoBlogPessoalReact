@@ -1,0 +1,39 @@
+.footer {
+    font-family: Calibri;
+    font-size: 10px;
+}
+
+.item h5 {
+    font-family: Calibri;
+    font-size: 20px;
+}
+
+.item a {
+    padding: 2px;
+
+}
+
+.item {
+    margin-left: 100px;
+}
+
+.caixa1 {
+    background-color: #363636;
+    height: 120px;
+}
+
+.redes {
+    font-size: 30;
+    color: white;
+}
+
+.caixa2 {
+    background-color: #FFE835;
+    height: 40px;
+}
+
+.final {
+    color: black;
+    font-family: Calibri;
+    margin-left: 10px;
+}

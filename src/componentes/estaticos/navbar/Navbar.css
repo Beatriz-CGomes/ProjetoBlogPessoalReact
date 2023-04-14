@@ -1,2 +1,21 @@
+.cursor{
+    cursor: pointer;
+    font-family: Calibri;
+    color: #363636;
+    margin-left: 450px;
 
+}
 
+.bg-color{
+    background-color: #FFE835;
+    padding: 150px;
+}
+
+.itens:hover{
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}

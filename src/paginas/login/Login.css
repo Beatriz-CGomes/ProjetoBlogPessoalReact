@@ -1,0 +1,38 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.imagem{
+    background-image: url('../assents/img/welcome.jpg');
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 60vh;
+    background-size: contain;
+    background-position: center;
+}
+
+.login-top{
+
+    padding: 130px;
+}
+
+.boders variant{
+    border-radius: 4px;
+}
+
+.login-top{
+    background-color: #eee9e9;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-block-end: 50px;
+    border-radius: 15px;
+    box-sizing: border-box;
+
+}
+
+.buttom{
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+}
