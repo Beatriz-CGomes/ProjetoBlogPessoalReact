@@ -33,3 +33,16 @@
     border: none;
     border-radius: 3px;
 }
+
+input{
+    border-color: black !important ;
+    border-radius: 25px!important;
+}
+
+.MuiOutlinedInput-input{
+    border-color: black !important ;
+}
+
+.MuiInputBase-input{
+
+}
