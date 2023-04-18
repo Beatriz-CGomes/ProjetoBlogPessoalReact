@@ -44,5 +44,5 @@ input{
 }
 
 .MuiInputBase-input{
-
+    border-color: black !important ;
 }

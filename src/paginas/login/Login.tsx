@@ -48,7 +48,7 @@ function Login() {
 
             alert('Usuário logado com sucesso!')
         } catch (error) {
-            alert('Dados do usário incosistentes. Erro ao logar!')
+            alert('Dados do usuário incosistentes. Erro ao logar!')
             console.log(userLogin)
         }
     }
