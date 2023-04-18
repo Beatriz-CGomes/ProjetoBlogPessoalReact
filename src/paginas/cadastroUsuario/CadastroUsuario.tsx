@@ -88,7 +88,7 @@ function CadastroUsuario() {
                                     Cancelar
                                 </Button >
                             </Link>
-                            <Button className='buttom3' type='submit' style={{ backgroundColor: '#FFE835', color: 'white', fontFamily: 'Calibri', fontWeight: 'bold' }}>
+                            <Button className='buttom3' type='submit' style={{ backgroundColor: '#FFE835', color: '#363636', fontFamily: 'Calibri', fontWeight: 'bold' }}>
                                 Cadastrar
                             </Button >
                         </Box>
