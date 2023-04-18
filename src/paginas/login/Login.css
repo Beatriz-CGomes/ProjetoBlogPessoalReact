@@ -3,7 +3,7 @@
 }
 
 .imagem{
-    background-image: url('../assents/img/welcome.jpg');
+    background-image: url('../assents/img/login2.png');
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 60vh;
@@ -12,13 +12,10 @@
 }
 
 .login-top{
-
     padding: 130px;
 }
 
-.boders variant{
-    border-radius: 4px;
-}
+
 
 .login-top{
     background-color: #eee9e9;

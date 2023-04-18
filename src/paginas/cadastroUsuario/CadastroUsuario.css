@@ -1,0 +1,28 @@
+.imagem2 {
+    background-image: url('../assents/img/login2.png');
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 50vh;
+    background-size: contain;
+    background-position: center;
+}
+
+.buttom2 {
+    height: 50px;
+    width: 40%;
+    border: none;
+    border-radius: 3px;
+    margin-right: 50px !important;
+
+}
+
+.buttom3 {
+    height: 50px;
+    width: 40%;
+    border: none;
+    border-radius: 3px;
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}

@@ -7,6 +7,7 @@ import { Grid, Paper } from '@material-ui/core';
 import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+          <Route path="/login/cadastrousuario" element={<CadastroUsuario />} />
 
         </Routes>
       </div>
