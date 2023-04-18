@@ -1,0 +1,19 @@
+.titulo{
+    font-weight: bold !important;
+    font-family: Calibri !important;
+    color: #363636!important;
+
+}
+
+.color-tb{
+    background-color: #ebebe4;
+    font-family: Calibri !important;
+    border: none !important;
+}
+
+.txt{
+    font-family: Calibri !important;
+    color: black !important;
+    font-weight: bold !important;
+    
+}

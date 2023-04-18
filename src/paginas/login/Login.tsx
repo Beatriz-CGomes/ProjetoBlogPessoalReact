@@ -64,7 +64,7 @@ function Login() {
 
 
                         <Typography variant="h5" style={{ color: '#363636', fontFamily: 'Calibri', textAlign: 'center', fontWeight: 'bold' }}>Bem-Vindo</Typography>
-                        <TextField  className='teste100'  value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='Usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField   value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='Usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
 

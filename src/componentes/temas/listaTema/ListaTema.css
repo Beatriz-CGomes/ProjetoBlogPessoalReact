@@ -1,15 +1,10 @@
-.imagem2 {
-    background-image: url('../assents/img/login2.png');
-    background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 50vh;
-    background-size: contain;
-    background-position: center;
+.text-decorator-none{
+    text-decoration: none;
 }
 
-.buttom2 {
+.buttom21 {
     height: 50px !important;
-    width: 40% !important;
+    width: 90% !important;
     border: none;
     border-radius: 3px;
     margin-right: 50px !important;
@@ -19,9 +14,9 @@
     font-Weight: bold !important;
 }
 
-.buttom3 {
+.buttom31 {
     height: 50px !important;
-    width: 40% !important;
+    width: 90% !important;
     border: none ! important;
     border-radius: 3px !important;
     margin-right: 50px !important;
@@ -30,8 +25,4 @@
     font-family: Calibri !important;
     font-Weight: bold !important;
     
-}
-
-.text-decorator-none {
-    text-decoration: none;
 }

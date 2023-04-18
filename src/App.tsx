@@ -8,6 +8,8 @@ import Navbar from './componentes/estaticos/navbar/Navbar';
 import Footer from './componentes/estaticos/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import ListaTema from './componentes/temas/listaTema/ListaTema';
+import ListaPostagem from './componentes/postagens/listaPostagem/ListaPostagem';
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/cadastrousuario" element={<CadastroUsuario />} />
           <Route path="/login/cadastrousuario" element={<CadastroUsuario />} />
-
+          <Route path="/temas" element={<ListaTema />} />
+          <Route path="/postagens" element={<ListaPostagem />} />
         </Routes>
       </div>
 

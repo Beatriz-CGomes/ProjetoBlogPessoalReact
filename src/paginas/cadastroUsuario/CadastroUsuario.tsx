@@ -84,11 +84,11 @@ function CadastroUsuario() {
 
                         <Box textAlign='center' marginTop={2}>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button className='buttom2' style={{ backgroundColor: '#363636', color: 'white', fontFamily: 'Calibri', fontWeight: 'bold' }}>
+                                <Button className='buttom2'>
                                     Cancelar
                                 </Button >
                             </Link>
-                            <Button className='buttom3' type='submit' style={{ backgroundColor: '#FFE835', color: '#363636', fontFamily: 'Calibri', fontWeight: 'bold' }}>
+                            <Button className='buttom3' type='submit'>
                                 Cadastrar
                             </Button >
                         </Box>

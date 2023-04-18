@@ -1,8 +1,8 @@
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
 }
 
-.imagem{
+.imagem {
     background-image: url('../assents/img/login2.png');
     background-repeat: no-repeat;
     width: 100vh;
@@ -11,13 +11,13 @@
     background-position: center;
 }
 
-.login-top{
+.login-top {
     padding: 130px;
 }
 
 
 
-.login-top{
+.login-top {
     background-color: #eee9e9;
     margin-top: 50px;
     margin-left: 100px;
@@ -27,22 +27,9 @@
 
 }
 
-.buttom{
+.buttom {
     height: 50px;
     width: 100%;
     border: none;
     border-radius: 3px;
-}
-
-input{
-    border-color: black !important ;
-    border-radius: 25px!important;
-}
-
-.MuiOutlinedInput-input{
-    border-color: black !important ;
-}
-
-.MuiInputBase-input{
-    border-color: black !important ;
 }
