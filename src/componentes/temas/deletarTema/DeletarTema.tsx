@@ -26,7 +26,7 @@ function DeletarTema() {
     }, [token])
 
     useEffect(() => {
-        if (id != undefined) {
+        if (id !== undefined) {
             findById(id)
         }
     }, [id])

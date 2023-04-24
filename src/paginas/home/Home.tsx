@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Paper, Button, Grid, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Home.css';
 import TabPostagem from '../../componentes/postagens/tabPostagem/TabPostagem';
+import ModalPostagem from '../../componentes/postagens/modalPostagem/ModelPostagem';
+import { useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 
 
 
 function Home() {
+
+    let navigate = useNavigate()
+
+    const[token,setToken]=useLocalStorage('token')
+
+    useEffect(()=>{
+        if(token ===''){
+            alert('Você precisa estar logado para poder utilizar este serviço')
+            navigate('/login')
+        }
+    },[token])
+
     return (
         <>
 
@@ -18,6 +33,7 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                            <ModalPostagem />
                         </Box>
                         <Button variant="outlined" style={{ borderColor: "#FFE835", backgroundColor: "#FFE835", color: "black", fontWeight: "bold", fontFamily: 'Calibri', border: 'none' }}>Ver Postagens</Button>
                     </Box>

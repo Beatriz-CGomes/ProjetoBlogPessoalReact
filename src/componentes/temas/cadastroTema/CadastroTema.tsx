@@ -12,7 +12,7 @@ function CadastroTema() {
 
     let history = useNavigate();
 
-    // capturar os parametros enviados pela url, vai capturar o ID 
+    // capturar os parametros enviados pela url, e assim  capturar o ID 
     const { id } = useParams<{ id: string }>();
     //captura otoken no localStoroge
     const [token, setToken] = useLocalStorage('token');
@@ -32,7 +32,7 @@ function CadastroTema() {
     }, [token])
 
 
-    //ficar monitorando o id, e se tiver o id será pego pelo FindID
+    //ficar monitorando o id, e se tiver será pego pelo FindID
     useEffect(() => {
         if (id != undefined) {
             findById(id)

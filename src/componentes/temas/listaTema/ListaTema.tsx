@@ -14,6 +14,7 @@ function ListaTema() {
     const [token, setToken] = useLocalStorage('token');
     let history = useNavigate();
 
+    //Aqui está verificando se o token está vazio, precisa saber se está logado ou não
     useEffect(() => {
         if (token == "") {
             alert("você precisa estar logado")
@@ -21,6 +22,7 @@ function ListaTema() {
         }
     }, [token])
 
+    //
     async function getTema() {
         await busca("/tema", setTemas, {
             headers: {
@@ -29,6 +31,7 @@ function ListaTema() {
         })
     }
 
+    // Quando uma varivel sofre uma alteração ele dispara uma função 
     useEffect(() => {
         getTema()
     },
@@ -38,6 +41,7 @@ function ListaTema() {
         <>
 
             {
+                //map - permite mapear/ andar por cada objeto dentro do array e dar uma função para cada um
                 temas.map(tema =>(
 
             <Box m={2} >

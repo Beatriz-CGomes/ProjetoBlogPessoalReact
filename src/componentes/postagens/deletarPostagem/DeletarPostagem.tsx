@@ -1,11 +1,59 @@
 import React, { useEffect, useState } from 'react'
-import {Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
-import {Box} from '@mui/material';
+import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
+import { Box } from '@mui/material';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
+import { useNavigate, useParams } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 
 function DeletarPostagem() {
-   
+
+  let history = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const [token, setToken] = useLocalStorage('token');
+  const [post, setPosts] = useState<Postagem>()
+
+
+  useEffect(() => {
+    if (token == "") {
+      alert("você precisa estar logado")
+      history("/login")
+    }
+  }, [token])
+
+  useEffect(() => {
+    if (id !== undefined) {
+      findById(id)
+    }
+  }, [id])
+
+
+  async function findById(id: string) {
+    buscaId(`/postagens/${id}`, setPosts, {
+      Headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  //direciona para tela de temas, em seguida seleciona deleteId
+  function sim() {
+    history('/posts')
+    deleteId(`/postagens/${id}`, {
+      Headers: {
+        'Authorization': token
+      }
+    });
+    alert('Postagem deletada com sucesso')
+  }
+
+  function nao() {
+    history('/posts')
+  }
+
+
+
+
   return (
     <>
       <Box m={2}>
@@ -13,10 +61,10 @@ function DeletarPostagem() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja deletar a Postagem:
+                {post?.titulo}
               </Typography>
               <Typography color="textSecondary" >
-              Tema
+                Tema
               </Typography>
             </Box>
 
@@ -24,14 +72,14 @@ function DeletarPostagem() {
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-              <Button  variant="contained" size='large' className='buttom31'>
-                Sim
-              </Button>
+                <Button onClick={sim} variant="contained" size='large' className='buttom31'>
+                  Sim
+                </Button>
               </Box>
               <Box>
-              <Button variant="contained" size='large' className='buttom21'>
-                Não
-              </Button>
+                <Button onClick={nao} variant="contained" size='large' className='buttom21'>
+                  Não
+                </Button>
               </Box>
             </Box>
           </CardActions>
