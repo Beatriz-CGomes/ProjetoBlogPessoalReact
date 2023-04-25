@@ -4,7 +4,9 @@ import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
 import './CadastroTema.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 
 
 
@@ -15,7 +17,9 @@ function CadastroTema() {
     // capturar os parametros enviados pela url, e assim  capturar o ID 
     const { id } = useParams<{ id: string }>();
     //captura otoken no localStoroge
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     //na medida que o id for diferente de 0 os id são modificados automaticamente
     const [tema, setTema] = useState<Tema>({
