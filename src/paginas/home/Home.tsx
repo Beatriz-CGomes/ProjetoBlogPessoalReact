@@ -7,7 +7,7 @@ import ModalPostagem from '../../componentes/postagens/modalPostagem/ModelPostag
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/TokensReducer';
-
+import {toast} from 'react-toastify';
 
 
 function Home() {
@@ -21,7 +21,16 @@ function Home() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado para poder utilizar este serviço')
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             navigate('/login')
         }
     }, [token])

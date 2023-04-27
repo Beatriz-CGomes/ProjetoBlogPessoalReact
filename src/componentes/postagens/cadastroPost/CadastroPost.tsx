@@ -8,13 +8,15 @@ import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
+
 
 function CadastroPost() {
 
     let history = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
-    
+
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
@@ -23,7 +25,16 @@ function CadastroPost() {
     //pega os temas já cadastrados
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history("/login")
 
         }
@@ -95,23 +106,69 @@ function CadastroPost() {
 
         //atualização da postagem
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Postagem atualizada com sucesso');
+
+            //atualização da postagem
+            try {
+                await put(`/postagens`, postagem, setPostagem, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Postagem atualizada com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
+            } catch (error) {
+                toast.error('Erro ao atualizar sua postagem, verifique os campos', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
+            }
+
             //criação da postagem
         } else {
-            post(`/postagens`, postagem, setPostagem, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Postagem cadastrada com sucesso');
+            try {
+                await post(`/postagens`, postagem, setPostagem, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Postagem cadastrada com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
+            } catch (error) {
+                toast.error('Erro ao cadastrar sua postagem, tente outra vez', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
+            }
         }
         back()
-
     }
 
     // essa função é para voltar para a página de postagens
@@ -134,18 +191,18 @@ function CadastroPost() {
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
 
                     <Select
-                        labelId="demo-simple-select-helper-label" 
+                        labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/temas/${e.target.value}`,setTema,{
-                            headers:{
-                                'Authorization':token
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
+                            headers: {
+                                'Authorization': token
                             }
                         })}>
-                            {
-                                temas.map(tema => {
-                                    <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
-                                })
-                            }
+                        {
+                            temas.map(tema => {
+                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                            })
+                        }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
                     <Button type="submit" variant="contained" className='buttom3'>

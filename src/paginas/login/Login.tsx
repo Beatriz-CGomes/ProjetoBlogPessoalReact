@@ -8,6 +8,7 @@ import { login } from '../../services/Service';
 import './Login.css'
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/Actions';
+import { toast } from 'react-toastify';
 
 
 function Login() {
@@ -47,11 +48,29 @@ function Login() {
 
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
-            
 
-            alert('Usuário logado com sucesso!')
+
+            toast.success('Usuario logado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } catch (error) {
-            alert('Dados do usuário incosistentes. Erro ao logar!')
+            toast.error('Dados do usuário incosistentes. Erro ao logar', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             console.log(userLogin)
         }
     }
@@ -61,13 +80,13 @@ function Login() {
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid alignItems='center' xs={6} >
                 <Box paddingX={10} className='login-top'>
-                
-                
+
+
                     <form onSubmit={onSubmit} className='color'>
 
 
                         <Typography variant="h5" style={{ color: '#363636', fontFamily: 'Calibri', textAlign: 'center', fontWeight: 'bold' }}>Bem-Vindo</Typography>
-                        <TextField   value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='Usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='Usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
 

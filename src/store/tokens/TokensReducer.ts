@@ -1,5 +1,6 @@
 import { Action } from './Actions';
 
+//estado da aplicação
 export interface TokenState {
     tokens: string
 }

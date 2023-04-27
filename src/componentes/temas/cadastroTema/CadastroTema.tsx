@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 
 
@@ -29,8 +30,17 @@ function CadastroTema() {
 
     //cuida do ciclo de vida do token
     useEffect(() => {
-        if (token == "") {
-            alert("você precisa estar logado")
+        if (token === "") {
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history("/login")
         }
     }, [token])
@@ -38,15 +48,15 @@ function CadastroTema() {
 
     //ficar monitorando o id, e se tiver será pego pelo FindID
     useEffect(() => {
-        if (id != undefined) {
+        if (id !== undefined) {
             findById(id)
         }
     }, [id])
 
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
-            Headers: {
+        buscaId(`/temas/${id}`, setTema, {
+            headers: {
                 'Authorization': token
             }
         })
@@ -54,7 +64,7 @@ function CadastroTema() {
 
 
     //função responsavel por capturar os valores digitados no formulário
-    function updatedTema(e: ChangeEvent<HTMLInputElement>) {
+   async function updatedTema(e: ChangeEvent<HTMLInputElement>) {
         setTema({
             ...tema,
             [e.target.name]: e.target.value,
@@ -66,29 +76,56 @@ function CadastroTema() {
         //previni para não atualizar a tela
         e.preventDefault()
         //imprimi no console o dados que foram armazenados no setTema
-        console.log("tema" + JSON.stringify(tema))
+        console.log("temas" + JSON.stringify(tema))
 
         //se existe um id ele vai tentar atualizar o tema, tem uma rota
         if (id != undefined) {
             console.log(tema)
             //atualiza o tema -- rota do back
             // rota da api, os dados que pretende cadastrar, captura objeto atualizado e passa para o Header o token de atualização
-            put(`/tema`, tema, setTema, {
-                Headers: {
+          
+          
+            put(`/temas`, tema, setTema, {
+                headers: {
                     'Authorization': token
                 }
             })
-            alert("Tema atualizado com sucesso");
+            toast.success('Tema atualizado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             //aqui siginifica que não existe um tema cadastro com id ainda
         } else {
             //aqui irá fazer um novo cadastro com post, passando pela mesma rota
-            post(`/tema`, tema, setTema, {
+            
+            try{
+
+            } catch{
+
+            }
+            
+            post(`/temas`, tema, setTema, {
                 Headers: {
                     'Authorization': token
                 }
             })
-            alert("Tema cadastrado com sucesso");
-        } back() // volta par ao componete /temas
+            toast.success('Tema cadastrado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
+        } back() // volta para página de temas
     }
 
     function back() {
